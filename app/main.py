@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from database.database import engine, test_connection
-from models import database_models
-from api.routes import users
+from .database.database import engine, test_connection
+from .models import database_models
+from .api.routes import users
 
 app = FastAPI()
 
@@ -29,4 +29,4 @@ app.include_router(users.router)
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="localhost", port=8000, reload=True)
+    uvicorn.run("app.main:app", host="localhost", port=8000, reload=True)

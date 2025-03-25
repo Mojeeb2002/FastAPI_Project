@@ -6,7 +6,8 @@ from pydantic.types import conint
 
 class UserBase(BaseModel):
     id: int
-    full_name: str
+    name: str
+    last_name: str
     email: EmailStr
     role: str
     created_at: datetime
@@ -15,14 +16,16 @@ class UserBase(BaseModel):
 
 
 class UserCreate(BaseModel):
-    full_name: str
+    name: str
+    last_name: str
     email: EmailStr
     password: str
 
 
 class UserResponse(BaseModel):
     id: int
-    full_name: str
+    name: str
+    last_name: str
     email: EmailStr
     role: str
     created_at: datetime
@@ -31,7 +34,8 @@ class UserResponse(BaseModel):
 
 
 class UserUpdate(BaseModel):
-    full_name: Optional[str]
+    name: Optional[str]
+    last_name: Optional[str]
     email: Optional[EmailStr]
     password: Optional[str]
     role: Optional[str]
